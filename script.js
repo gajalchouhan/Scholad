@@ -624,7 +624,16 @@ function getBaseData(data){
   else if(columnIndex === 'position'){
     var addData = '';
     for(let i=0; i<data.length; i++){
-      addData += `<tr><td>${data[i].name}</td><td>${data[i].position}</td></tr>`;
+      addData += `<tr  onclick="showRowDetail(${i})" class="tablrow">
+      <td>${data[i].name}</td>
+      <td>${data[i].position}</td>
+      </tr>
+
+      <div id="${i}" class="rowDetails" style="display : none">
+          <div> Starting Date :- ${data[i].start_date}</div>
+          <div> Salary :- ${data[i].salary}</div>
+          <div> Extn :- ${data[i].extn}</div>
+        </div>`;
   }
   document.querySelector('#head').innerHTML = `
   <th onclick="tableSort(0)">Name</th>
@@ -634,7 +643,14 @@ function getBaseData(data){
   else if(columnIndex === 'office'){
     var addData = '';
     for(let i=0; i<data.length; i++){
-      addData += `<tr><td>${data[i].name}</td><td>${data[i].office}</td></tr>`;
+      addData += `<tr  onclick="showRowDetail(${i})" class="tablrow">
+      <td>${data[i].name}</td>
+      <td>${data[i].office}</td></tr>
+      <div id="${i}" class="rowDetails" style="display : none">
+          <div> Starting Date :- ${data[i].start_date}</div>
+          <div> Salary :- ${data[i].salary}</div>
+          <div> Extn :- ${data[i].extn}</div>
+        </div>`;
   }
 
   document.querySelector('#head').innerHTML = `<th onclick="tableSort(0)">Name</th>
